@@ -26,12 +26,37 @@ app.post('/', (req, res) => {
     res.send({message: ok})
 })
 
+//
+//<CRUD>
+//
+//Create
+app.post('/data', (req, res) => {
+    res.send(req.body)
+})
+
+//Read
+//Route exact matching
 app.get('/data', [log, log, log], (req, res) => {
     res.send({message: 'hello'})
 })
 
-app.post('/data', (req, res) => {
-    res.send(req.body)
+//Update
+app.put('/data', (req, res) => {
+
+})
+
+//Delete
+app.delete('/data', (req, res) => {
+
+})
+//
+//<CRUD>
+//
+
+//Route parameter matching
+app.get('/data/:id', (req, res) => {
+    const id = req.params.id;
+    res.send({message: `This is your id argument: ${id}`})
 })
 
 export const start = () => {
